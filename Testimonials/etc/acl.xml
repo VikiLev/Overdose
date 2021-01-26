@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Overdose_Testimonials::CustomMessage" sortOrder="10" title="Testimonials">
+					<resource id="Overdose_Testimonials::CustomMessage_save" sortOrder="10" title="Save CustomMessage"/>
+					<resource id="Overdose_Testimonials::CustomMessage_delete" sortOrder="20" title="Delete CustomMessage"/>
+					<resource id="Overdose_Testimonials::CustomMessage_update" sortOrder="30" title="Update CustomMessage"/>
+					<resource id="Overdose_Testimonials::CustomMessage_view" sortOrder="40" title="View CustomMessage"/>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

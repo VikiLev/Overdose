@@ -1,0 +1,38 @@
+<?php
+use Overdose\Testimonials\Block\Frontend\CustomMessage;
+/** @var CustomMessage $block */
+?>
+<form id="my-form" action="<?= $block->getUrl("uitests/index/save") ?>" method="post" enctype="multipart/form-data">
+    <h3>Title</h3>
+    <label>
+        <input type="text" name="title" data-validate="{'required':true}">
+    </label>
+        <h3>Message</h3>
+    <label>
+        <textarea name ="message" data-validate="{'required':true}"></textarea>
+    </label>
+        <div class="field image">
+            <label class="label" for="image">
+                <span><?php /* @escapeNotVerified */ echo __('Image') ?></span>
+            </label>
+            <div class="control">
+                <input name="image" id="image" title="<?php /* @escapeNotVerified */ echo __('image') ?>"
+                       type="file" data-validate="{'validate-size':true} ">
+            </div>
+        </div>
+
+    <input type="hidden" name="url" value="<?= $block->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true])?>">
+    <button type="submit">Save</button>
+</form>
+
+
+<div>
+    <?php $do = $block->getMessageCollection()?>
+</div>
+<script type="text/x-magento-init">
+    {
+        "#my-form": {
+            "validation": {}
+        }
+    }
+</script>

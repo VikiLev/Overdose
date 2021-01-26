@@ -1,0 +1,120 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">overdose_testimonials_custommessage_listing.overdose_testimonials_custommessage_listing_data_source</item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>overdose_testimonials_custommessage_columns</spinner>
+		<deps>
+			<dep>overdose_testimonials_custommessage_listing.overdose_testimonials_custommessage_listing_data_source</dep>
+		</deps>
+		<buttons>
+			<button name="add">
+				<url path="*/*/new"/>
+				<class>primary</class>
+				<label translate="true">Add new CustomMessage</label>
+			</button>
+		</buttons>
+	</settings>
+	<dataSource component="Magento_Ui/js/grid/provider" name="overdose_testimonials_custommessage_listing_data_source">
+		<settings>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<aclResource>Overdose_Testimonials::CustomMessage</aclResource>
+		<dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="overdose_testimonials_custommessage_listing_data_source">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>testimonials_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+	<columns name="overdose_testimonials_custommessage_columns">
+		<settings>
+			<editorConfig>
+				<param name="selectProvider" xsi:type="string">overdose_testimonials_custommessage_listing.overdose_testimonials_custommessage_listing.overdose_testimonials_custommessage_columns.ids</param>
+				<param name="enabled" xsi:type="boolean">true</param>
+				<param name="indexField" xsi:type="string">testimonials_id</param>
+				<param name="clientConfig" xsi:type="array">
+					<item name="saveUrl" path="overdose_testimonials/CustomMessage/inlineEdit" xsi:type="url"/>
+					<item name="validateBeforeSave" xsi:type="boolean">false</item>
+				</param>
+			</editorConfig>
+			<childDefaults>
+				<param name="fieldAction" xsi:type="array">
+					<item name="provider" xsi:type="string">overdose_testimonials_custommessage_listing.overdose_testimonials_custommessage_listing.overdose_testimonials_custommessage_columns_editor</item>
+					<item name="target" xsi:type="string">startEdit</item>
+					<item name="params" xsi:type="array">
+						<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+						<item name="1" xsi:type="boolean">true</item>
+					</item>
+				</param>
+			</childDefaults>
+		</settings>
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>testimonial_id</indexField>
+			</settings>
+		</selectionsColumn>
+		<column name="testimonial_id">
+			<settings>
+				<filter>text</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>
+			</settings>
+		</column>
+		<column name="title">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">title</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<actionsColumn class="Overdose\Testimonials\Ui\Component\Listing\Column\CustomMessageActions" name="actions">
+			<settings>
+				<indexField>testimonials_id</indexField>
+				<resizeEnabled>false</resizeEnabled>
+				<resizeDefaultWidth>107</resizeDefaultWidth>
+			</settings>
+		</actionsColumn>
+		<column name="message">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">message</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="upload_pic">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">upload_pic</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+	</columns>
+</listing>

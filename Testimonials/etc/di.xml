@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Overdose\Testimonials\Api\CustomMessageRepositoryInterface" type="Overdose\Testimonials\Model\CustomMessageRepository"/>
+	<preference for="Overdose\Testimonials\Api\Data\CustomMessageInterface" type="Overdose\Testimonials\Model\Data\CustomMessage"/>
+	<preference for="Overdose\Testimonials\Api\Data\CustomMessageSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Overdose\Testimonials\Model\ResourceModel\CustomMessage\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">overdose_testimonials</argument>
+			<argument name="resourceModel" xsi:type="string">Overdose\Testimonials\Model\ResourceModel\CustomMessage\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="overdose_testimonials_custommessage_listing_data_source" xsi:type="string">Overdose\Testimonials\Model\ResourceModel\CustomMessage\Grid\Collection</item>
+				<item name="uitests_custommessage_listing_data_source" xsi:type="string">Overdose\Testimonials\Model\ResourceModel\CustomMessage\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

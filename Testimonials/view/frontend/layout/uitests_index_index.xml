@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Overdose\Testimonials\Block\Frontend\CustomMessage" name="rest11111"
+                   template="Overdose_Testimonials::custommodul.phtml"
+            before="overdose_testimonials_custommessage_listing"/>
+            <uiComponent name="uitests_custommessage_listing"/>
+        </referenceContainer>
+    </body>
+</page>
